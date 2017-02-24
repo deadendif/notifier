@@ -18,5 +18,5 @@ cd notifier/emailService/src && nohup python SendEmailServer.py &
 
 ##### 启动程序
 ```bash
-notifier/crawlers/src && python JDCrawler.py
+cd notifier/crawlers/src && python JDCrawler.py
 ```
