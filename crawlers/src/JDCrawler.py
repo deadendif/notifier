@@ -3,6 +3,7 @@
 
 import sys
 import json
+import time
 import requests
 import gevent
 import gevent.monkey
@@ -57,7 +58,7 @@ def main():
     logger.info("Result: %s" % str(result))
     if result:
         try:
-            sendEmail(EMAIL_TO_ADDRS, u'京东价格爬取汇总', '\n'.join(result))
+            sendEmail(EMAIL_TO_ADDRS, u'[%s] 京东价格爬取汇总' % time.strftime('%Y-%m-%d'), '\n'.join(result))
         except Exception, e:
             logger.error("Send email failed, error: %s" % str(e))
         else:
