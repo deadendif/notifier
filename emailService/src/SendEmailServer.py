@@ -49,7 +49,7 @@ class SendEmailExecutor(object):
             server = smtplib.SMTP(EMAIL_HOST, EMAIL_PORT)
             # server.set_debuglevel(1)
             server.login(fromAddr, EMAIL_PASSWORD)
-            server.sendmail(fromAddr, [toAddrs], email.as_string())
+            server.sendmail(fromAddr, [addr.strip() for addr in toAddrs.split(",")], email.as_string())
             server.quit()
         except Exception, e:
             logger.error("Sending email failure, error: %s" % (str(e)))
